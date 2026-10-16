@@ -1,7 +1,7 @@
 # Bente — benteheatknit.com
 
 建站时间：2026-10-16
-调研单：`/Users/tedgao/Desktop/网站工厂/briefs/bente-heat-reactive-knit.md`
+调研单：`/Users/tedgao/ERP-Vault/网站工厂/00-流水线/briefs/bente-heat-reactive-knit.md`
 
 ## 上线清单
 
