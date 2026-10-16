@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-white text-slate-800 antialiased;
+}
+
+/* 文章正文（markdown 渲染出来的内容）默认样式 */
+.prose-site { @apply text-slate-700 leading-relaxed; }
+.prose-site > * + * { @apply mt-4; }
+.prose-site h2 { @apply mt-10 text-2xl font-semibold text-slate-900; }
+.prose-site h3 { @apply mt-8 text-xl font-semibold text-slate-900; }
+.prose-site ul { @apply list-disc pl-6 space-y-2; }
+.prose-site ol { @apply list-decimal pl-6 space-y-2; }
+.prose-site a { @apply text-brand-700 underline underline-offset-2; }
+.prose-site strong { @apply font-semibold text-slate-900; }
+.prose-site table { @apply w-full border-collapse text-sm; }
+.prose-site th, .prose-site td { @apply border border-slate-200 px-3 py-2 text-left; }
+.prose-site th { @apply bg-slate-50 font-semibold; }

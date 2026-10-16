@@ -1,0 +1,29 @@
+name: 构建检查
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: 类型检查
+        run: npx tsc --noEmit
+      - name: 构建
+        run: npm run build
+      # 自检不通过就让 CI 标红，防止把占位符内容推上线
+      - name: 上线前自检
+        run: node scripts/preflight.mjs
+      - name: 产物统计
+        run: |
+          echo "文件数: $(find out -type f | wc -l)"
+          echo "总体积: $(du -sh out | cut -f1)"
