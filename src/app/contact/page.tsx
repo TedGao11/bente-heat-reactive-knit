@@ -5,19 +5,25 @@ import { Section, SectionTitle } from "@/components/Container";
 import { InquiryForm } from "@/components/InquiryForm";
 
 export const metadata: Metadata = pageMetadata({
-  title: `Contact ${site.brand.name} — Request a Quote`,
-  description: `Contact ${site.brand.name} for a quote on custom ${site.industry.name.toLowerCase()}. Email ${site.contact.email}. Reply within one business day.`,
+  title: `Contact ${site.brand.name}`,
+  description: `Questions about a piece, a size or an order? Contact ${site.brand.name} at ${site.contact.email}. We usually reply within one business day.`,
   path: "/contact/",
-  keywords: [...site.industry.keywords, `${site.industry.name} supplier`, `${site.industry.name} manufacturer`],
 });
+
+const HELP = [
+  "Which size to choose",
+  "Help with an existing order",
+  "Returns and exchanges",
+  "Care and washing questions",
+];
 
 export default function ContactPage() {
   return (
     <Section>
       <SectionTitle
         eyebrow="Get in touch"
-        title="Request a quote"
-        subtitle="Tell us what you need. Include quantity and destination so we can quote shipping in the same reply."
+        title="Contact us"
+        subtitle="Questions about a piece, a size or an order? Send us a message and a person will reply."
       />
 
       <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
@@ -30,23 +36,17 @@ export default function ContactPage() {
               <div>
                 <dt className="text-slate-500">Email</dt>
                 <dd>
-                  <a href={`mailto:${site.contact.email}`} className="font-medium text-brand-700 hover:underline">
+                  <a href={"mailto:" + site.contact.email} className="font-medium text-brand-700 hover:underline">
                     {site.contact.email}
                   </a>
                 </dd>
               </div>
-              {site.contact.phone ? (
-                <div>
-                  <dt className="text-slate-500">Phone</dt>
-                  <dd className="font-medium text-slate-800">{site.contact.phone}</dd>
-                </div>
-              ) : null}
               {site.contact.whatsapp ? (
                 <div>
                   <dt className="text-slate-500">WhatsApp</dt>
                   <dd>
                     <a
-                      href={`https://wa.me/${site.contact.whatsapp}`}
+                      href={"https://wa.me/" + site.contact.whatsapp}
                       rel="noopener"
                       className="font-medium text-brand-700 hover:underline"
                     >
@@ -55,23 +55,19 @@ export default function ContactPage() {
                   </dd>
                 </div>
               ) : null}
-              {site.contact.address ? (
-                <div>
-                  <dt className="text-slate-500">Address</dt>
-                  <dd className="font-medium text-slate-800">{site.contact.address}</dd>
-                </div>
-              ) : null}
+              <div>
+                <dt className="text-slate-500">Made in</dt>
+                <dd className="font-medium text-slate-800">Dongguan, China</dd>
+              </div>
             </dl>
           </div>
 
           <div className="rounded-xl border border-slate-200 p-6">
-            <h2 className="font-semibold text-slate-900">What to include</h2>
+            <h2 className="font-semibold text-slate-900">We can help with</h2>
             <ul className="mt-3 space-y-2 text-sm text-slate-600">
-              <li>• Product / model number</li>
-              <li>• Quantity you plan to order</li>
-              <li>• Specification, drawing or reference photo</li>
-              <li>• Destination country or port</li>
-              <li>• Any certification you must have</li>
+              {HELP.map((h) => (
+                <li key={h}>• {h}</li>
+              ))}
             </ul>
           </div>
         </aside>

@@ -19,8 +19,8 @@ auth_endpoint: auth
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
-site_url: https://benteheatknit.com
-display_url: https://benteheatknit.com
+site_url: https://benteknit.com
+display_url: https://benteknit.com
 
 collections:
   # ---------- 产品：一个文件 = 一个产品页 ----------

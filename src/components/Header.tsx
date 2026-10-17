@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "../../site.config";
 import { href } from "@/lib/ui";
 import { Container } from "./Container";
+import { CartLink } from "./CartLink";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -26,12 +27,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={href("/contact")}
-              className="rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
-            >
-              Get a Quote
-            </Link>
+            <CartLink />
           </nav>
         </div>
       </Container>

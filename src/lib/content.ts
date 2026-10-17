@@ -12,6 +12,8 @@ export type Product = {
   title: string;
   summary: string;
   image?: string;
+  images?: string[];
+  price?: number;
   specs: Spec[];
   keywords: string[];
   order: number;
@@ -43,6 +45,8 @@ export function getAllProducts(): Product[] {
         title: String(data.title ?? ""),
         summary: String(data.summary ?? ""),
         image: data.image ? String(data.image) : undefined,
+        images: Array.isArray(data.images) ? (data.images as string[]) : [],
+        price: typeof data.price === "number" ? data.price : Number(data.price) || 0,
         specs: Array.isArray(data.specs) ? (data.specs as Spec[]) : [],
         keywords: Array.isArray(data.keywords) ? (data.keywords as string[]) : [],
         order: typeof data.order === "number" ? data.order : 999,

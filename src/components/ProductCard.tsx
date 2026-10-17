@@ -8,7 +8,7 @@ export function ProductCard({ product }: { product: Product }) {
       href={href(`/products/${product.slug}`)}
       className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-brand-300 hover:shadow-md"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+      <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
         {product.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img

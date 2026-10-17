@@ -8,7 +8,7 @@ import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.industry.productsWord} — ${site.brand.name}`,
-  description: `Browse our ${site.industry.name.toLowerCase()} range. Custom sizes, materials and branding. Low MOQ, worldwide shipping.`,
+  description: `The ${site.brand.name} range - knitted at our own mill in short runs and shipped worldwide.`,
   path: "/products/",
   keywords: site.industry.keywords,
 });
@@ -22,7 +22,7 @@ export default function ProductsPage() {
         <SectionTitle
           eyebrow={site.brand.tagline}
           title={site.industry.productsWord}
-          subtitle={`Every item below can be customized to your market. Tell us your target price and quantity — we quote within 24 hours.`}
+          subtitle="Knitted in our own mill, made in short runs, shipped tracked worldwide."
         />
         {products.length ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

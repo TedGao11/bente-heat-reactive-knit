@@ -9,6 +9,8 @@ import { href } from "@/lib/ui";
 import { Container, Section } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
 import { InquiryForm } from "@/components/InquiryForm";
+import { ProductGallery } from "@/components/ProductGallery";
+import { AddToCart } from "@/components/AddToCart";
 
 export const dynamicParams = false;
 
@@ -25,7 +27,7 @@ export async function generateMetadata({
   const product = getProduct(slug);
   if (!product) return {};
   return pageMetadata({
-    title: `${product.title} — Custom Manufacturer`,
+    title: product.title,
     description: product.summary.slice(0, 155),
     path: `/products/${product.slug}/`,
     keywords: product.keywords,
@@ -53,14 +55,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-            {product.image ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={product.image} alt={product.title} className="h-full w-full object-cover" />
-            ) : (
-              <div className="flex aspect-[4/3] items-center justify-center text-slate-400">No image</div>
+          <ProductGallery
+            images={Array.from(
+              new Set([product.image, ...(product.images ?? [])].filter((x): x is string => Boolean(x)))
             )}
-          </div>
+            alt={product.title}
+          />
 
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -79,13 +79,20 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </dl>
             ) : null}
 
-            <div className="mt-8">
-              <Link
-                href={href("/contact")}
-                className="inline-block rounded-md bg-brand-600 px-6 py-3 font-semibold text-white hover:bg-brand-700"
-              >
-                Request a quote
+            <AddToCart
+              slug={product.slug}
+              title={product.title}
+              price={product.price ?? 0}
+              image={product.image}
+              sizes={["XS", "S", "M", "L", "XL", "XXL"]}
+            />
+
+            <div className="mt-6 text-sm text-slate-500">
+              Not sure about sizing?{" "}
+              <Link href={href("/contact")} className="text-brand-700 underline underline-offset-2">
+                Ask us
               </Link>
+              {" "}- we reply to every message.
             </div>
           </div>
         </div>
@@ -98,7 +105,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       ) : null}
 
       <Section>
-        <h2 className="mb-6 text-2xl font-bold text-slate-900">Send your specification</h2>
+        <h2 className="mb-6 text-2xl font-bold text-slate-900">Questions about this piece?</h2>
         <div className="max-w-3xl">
           <InquiryForm />
         </div>

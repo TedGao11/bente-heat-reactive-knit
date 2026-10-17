@@ -22,3 +22,14 @@ body {
 .prose-site table { @apply w-full border-collapse text-sm; }
 .prose-site th, .prose-site td { @apply border border-slate-200 px-3 py-2 text-left; }
 .prose-site th { @apply bg-slate-50 font-semibold; }
+/* 宽表格（如尺码表）在窄屏上横向滚动，不撑破版面 */
+/* 可展开/收起的区块（Description / Size chart / Shipping …） */
+.prose-site details { @apply mt-4 border-t border-slate-200 pt-4; }
+.prose-site details > summary { @apply cursor-pointer list-none py-2 text-lg font-semibold text-slate-900 marker:hidden; }
+.prose-site details > summary::-webkit-details-marker { display: none; }
+.prose-site details > summary::after { content: "+"; float: right; font-weight: 400; color: #64748b; }
+.prose-site details[open] > summary::after { content: "-"; }
+.prose-site details > summary:hover { @apply text-brand-700; }
+
+.table-scroll { @apply w-full overflow-x-auto; }
+.table-scroll table { @apply min-w-[560px]; }

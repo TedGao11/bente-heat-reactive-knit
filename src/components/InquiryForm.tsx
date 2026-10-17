@@ -6,9 +6,8 @@ import { site } from "../../site.config";
 type Status = "idle" | "sending" | "ok" | "error";
 
 /**
- * 询盘表单。
- * 静态站没有后端，所以走第三方表单服务（provider 在 site.config.ts 里配）。
- * provider 为 "none" 时不渲染表单，只显示邮箱和 WhatsApp —— 一样能接询盘。
+ * 联系表单。静态站没有后端，provider 在 site.config.ts 里配（web3forms / formspree）。
+ * provider 为 "none" 时不渲染表单，只显示邮箱和 WhatsApp。
  */
 export function InquiryForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -17,20 +16,21 @@ export function InquiryForm() {
   if (site.form.provider === "none" || !site.form.accessKey) {
     return (
       <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
-        <p className="font-semibold text-slate-900">Email us directly</p>
+        <p className="font-semibold text-slate-900">Email us</p>
         <p className="mt-2 text-sm text-slate-600">
-          Tell us the product, quantity and destination port. We usually reply within one business day.
+          Questions about a size, an order or a piece? Write to us and we will reply, usually
+          within one business day.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <a
-            href={`mailto:${site.contact.email}?subject=Inquiry from ${site.domain}`}
+            href={"mailto:" + site.contact.email + "?subject=Question from " + site.domain}
             className="rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700"
           >
             {site.contact.email}
           </a>
           {site.contact.whatsapp ? (
             <a
-              href={`https://wa.me/${site.contact.whatsapp}`}
+              href={"https://wa.me/" + site.contact.whatsapp}
               rel="noopener"
               className="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-white"
             >
@@ -52,10 +52,10 @@ export function InquiryForm() {
     const endpoint =
       site.form.provider === "web3forms"
         ? "https://api.web3forms.com/submit"
-        : `https://formspree.io/f/${site.form.accessKey}`;
+        : "https://formspree.io/f/" + site.form.accessKey;
 
     if (site.form.provider === "web3forms") data.append("access_key", site.form.accessKey!);
-    data.append("subject", `New inquiry from ${site.domain}`);
+    data.append("subject", "New message from " + site.domain);
     data.append("from_name", site.brand.name);
 
     try {
@@ -64,7 +64,7 @@ export function InquiryForm() {
         body: data,
         headers: { Accept: "application/json" },
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) throw new Error("HTTP " + res.status);
       setStatus("ok");
       form.reset();
     } catch (err) {
@@ -76,8 +76,8 @@ export function InquiryForm() {
   if (status === "ok") {
     return (
       <div className="rounded-xl border border-green-200 bg-green-50 p-6">
-        <p className="font-semibold text-green-900">Thanks — your inquiry has been sent.</p>
-        <p className="mt-2 text-sm text-green-800">We will reply to your email within one business day.</p>
+        <p className="font-semibold text-green-900">Thanks - your message has been sent.</p>
+        <p className="mt-2 text-sm text-green-800">We will reply to your email soon.</p>
       </div>
     );
   }
@@ -94,30 +94,21 @@ export function InquiryForm() {
         </label>
         <label className="text-sm font-medium text-slate-700">
           Email *
-          <input name="email" type="email" required className={input + " mt-1.5"} placeholder="you@company.com" />
-        </label>
-        <label className="text-sm font-medium text-slate-700">
-          Company
-          <input name="company" className={input + " mt-1.5"} placeholder="Company name" />
-        </label>
-        <label className="text-sm font-medium text-slate-700">
-          Country
-          <input name="country" className={input + " mt-1.5"} placeholder="Country / region" />
+          <input name="email" type="email" required className={input + " mt-1.5"} placeholder="you@email.com" />
         </label>
       </div>
 
       <label className="mt-4 block text-sm font-medium text-slate-700">
-        What do you need? *
+        Message *
         <textarea
           name="message"
           required
           rows={5}
           className={input + " mt-1.5"}
-          placeholder={"Product / model:\nQuantity:\nSpecification or drawing:\nTarget price (optional):"}
+          placeholder={"How can we help?"}
         />
       </label>
 
-      {/* 蜜罐字段：机器人会填，真人看不见 */}
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
       {status === "error" ? (
@@ -131,10 +122,10 @@ export function InquiryForm() {
         disabled={status === "sending"}
         className="mt-5 w-full rounded-md bg-brand-600 px-6 py-3 font-semibold text-white hover:bg-brand-700 disabled:opacity-60 sm:w-auto"
       >
-        {status === "sending" ? "Sending…" : "Send inquiry"}
+        {status === "sending" ? "Sending…" : "Send message"}
       </button>
       <p className="mt-3 text-xs text-slate-500">
-        We only use your details to answer this inquiry. No newsletters, no sharing.
+        We only use your details to reply. No newsletters, no sharing.
       </p>
     </form>
   );

@@ -1,27 +1,33 @@
 ---
 title: About Bente
-description: Who we are, where we knit, and why our colour-changing knitwear is made differently.
+description: A knitwear label knitted at our own mill in Dongguan - and the mill behind other brands' knits.
 ---
 
-Bente is a knitwear maker in Dongguan, China. We knit in our own mill - the same lines
-that make knitwear for other labels. This site is our own brand: the place where we put
-the ideas and the yarns we like, on our own terms.
+Bente is a knitwear label. We design the pieces, we knit them, and we sell them direct -
+because the mill is ours.
 
-## Where it is made
+## Where it comes from
 
-Our mill sits in Dongguan, the knitwear belt of southern China. Yarn comes in, knitting,
-linking, washing and packing happen under one roof. That is the difference between us and
-most colour-changing clothing on the market, which is bought in and printed on.
+Our mill sits in Dongguan, the knitwear belt of southern China. Yarn comes in, and
+knitting, linking, washing and finishing happen under one roof. For years we have knitted
+for other labels. Bente is the label we make for ourselves: the yarns, weights and
+colourwork we wanted to put our own name on.
 
-## What we do
+## What we make
 
-We make heat-reactive knitwear: knits where the thermochromic pigment sits inside the
-yarn, so the colour change is part of the fabric. The switch point is tunable, the
-transition is gradual rather than a hard jump, and the yarn is specified for repeated
-washing.
+Knitwear, starting with the intarsia knit sweater. Patterns are knitted into the garment
+rather than printed on top, so the design is part of the fabric. The first drop is small
+on purpose - we would rather make a short run properly than a big run carelessly.
 
-## How it works when you order
+## How we sell
 
 - **Shipping:** every order ships tracked from our warehouse, usually 5-12 business days
 - **Returns:** unworn items can be returned within 30 days
-- **Questions:** reply to any order email or message us on WhatsApp - a person answers
+- **Sizes:** XS to 2XL, with measurements on every product page
+- **Questions:** reply to any order email, or message us on WhatsApp - a person answers
+
+## The mill
+
+Everything on this site is knitted at our own mill in Dongguan - from the yarn coming in
+to the last stitch and the final wash. It is the same floor that has produced knitwear for
+other labels for years; Bente is the label we keep for ourselves.

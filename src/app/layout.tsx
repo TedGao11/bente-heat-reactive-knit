@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "../../site.config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CartProvider } from "@/lib/cart";
 import { SITE_URL, pageMetadata } from "@/lib/seo";
 import { organizationSchema } from "@/lib/schema";
 import "./globals.css";
@@ -31,9 +32,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
         />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

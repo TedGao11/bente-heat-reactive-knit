@@ -39,18 +39,24 @@ export type SiteConfig = {
 };
 
 export const site: SiteConfig = {
-  domain: "benteheatknit.com",
+  domain: "benteknit.com",
   launchedAt: "2026-10-16",
 
   brand: {
     name: "Bente",
-    tagline: "Colour-changing knitwear, knitted in our own mill",
+    tagline: "Knitwear from our own mill",
   },
 
   industry: {
-    name: "Heat-Reactive Knitwear",
+    name: "Knitwear",
     productsWord: "Shop",
-    keywords: ["heat reactive knitwear","color changing sweater","temperature changing hoodie","heat reactive long sleeve knit","colour changing knit jumper"],
+    keywords: [
+      "knitwear brand",
+      "knitted sweater",
+      "intarsia knit sweater",
+      "colourwork knitwear",
+      "heavyweight knit jumper",
+    ],
   },
 
   market: {
@@ -59,7 +65,7 @@ export const site: SiteConfig = {
   },
 
   contact: {
-    email: "hello@benteheatknit.com",
+    email: "hello@benteknit.com",
     phone: "",
     whatsapp: "8618166084589",
     address: "Dongguan, Guangdong, China",
@@ -71,50 +77,80 @@ export const site: SiteConfig = {
   },
 
   seo: {
-    title: "Heat Reactive Knitwear | Colour-Changing Knits by Bente",
-    description: "Heat-reactive knitwear that changes colour with temperature. Knitted in our own mill, wash-resistant, low MOQ, worldwide shipping.",
+    title: "Bente — Knitwear From Our Own Mill",
+    description:
+      "Bente is a knitwear label making sweaters and knits at our own mill in Dongguan. Colourwork knitted into the fabric, short runs, shipped worldwide.",
     titleTemplate: "%s | Bente",
     googleSiteVerification: "",
-    // ogImage: "/og.jpg",
   },
 
   hero: {
-    eyebrow: "Knitted in our own mill",
-    title: "Knitwear that changes colour with the weather.",
-    subtitle: "Heat-reactive yarn, knitted in our own mill in Dongguan — not sourced, not printed on. Below 15°C it turns one colour, above it turns another.",
-    bullets: ["Colour change is knitted into the yarn, not printed on top","Wash-resistant formulation, tested over repeated cycles","Worldwide shipping, tracked door to door"],
-    ctaPrimary: { label: "Shop the collection", href: "/products/" },
-    ctaSecondary: { label: "Our mill", href: "/about/" },
+    eyebrow: "Knitwear from our own mill",
+    title: "Knits with weight, colour and intent.",
+    subtitle:
+      "Bente is a knitwear label run out of our own mill in Dongguan. We knit the whole garment - the yarn, the pattern, the rib - instead of printing on a blank. First drop: the intarsia knit.",
+    bullets: [
+      "Knitted in our own mill, not bought in and printed",
+      "Colourwork knitted into the fabric, so it never peels or cracks",
+      "Short runs, shipped worldwide",
+    ],
+    ctaPrimary: { label: "Shop the first drop", href: "/products/" },
+    ctaSecondary: { label: "Inside the mill", href: "/about/" },
   },
 
-  trustBar: ["Own knitting mill","Wash-resistant colour change","Worldwide shipping"],
+  trustBar: ["Knitted in our own mill", "Colourwork knitted in, not printed", "Tracked worldwide shipping"],
 
   capabilities: {
-    title: "Why our colour change lasts",
-    subtitle: "Most colour-changing clothes are printed or coated. Ours is knitted.",
+    title: "Why our knits hold up",
+    subtitle: "Most knitwear is bought in and printed. Ours is knitted from the yarn up.",
     items: [
-      { title: "Yarn-level colour change", desc: "The thermochromic pigment sits inside the yarn, so the colour change is part of the knit - not a layer that peels or cracks." },
-      { title: "Gradual, not a hard switch", desc: "Cheaper pieces jump colour at a threshold. Ours transitions gradually across the temperature range, so the effect looks intentional." },
-      { title: "Made in our own mill", desc: "We knit in our own factory in Dongguan, which means we control the yarn spec, the gauge and the wash testing - not a trading company reselling someone else's stock." },
+      {
+        title: "Knitted in-house",
+        desc: "Our own mill in Dongguan. We choose the yarn, set the gauge and finish every piece ourselves.",
+      },
+      {
+        title: "Pattern knitted in",
+        desc: "Intarsia and colourwork are knitted into the garment, so the design cannot peel, crack or wash off the way a print does.",
+      },
+      {
+        title: "Made in short runs",
+        desc: "We keep runs short so a new design can be tested before it scales - and the pieces stay considered rather than mass produced.",
+      },
     ],
   },
 
   stats: [
-    { value: "15°C", label: "Switch point, tunable" },
-    { value: "50+", label: "Wash cycles tested" },
+    { value: "Own mill", label: "Yarn to finished knit" },
+    { value: "XS - 2XL", label: "Size range" },
     { value: "Worldwide", label: "Tracked shipping" },
   ],
 
   faq: [
-    { q: "How does the colour change work?", a: "The knit is made with thermochromic yarn. Below roughly 15°C it reads one colour, and as it warms past that it transitions to another. The switch point can be tuned per style." },
-    { q: "Does it wash out?", a: "The pigment is inside the yarn rather than printed on the surface, and we use a wash-resistant formulation tested over repeated cycles. Wash cold and air dry to extend the life of the effect." },
-    { q: "What sizes do you carry?", a: "Our knitwear runs from XS to 2XL. Each product page lists the measurements - size up if you like a looser fit." },
-    { q: "How long does shipping take?", a: "Orders ship tracked from our warehouse. Most destinations arrive within 5 to 12 business days depending on location." },
-    { q: "Can I return it?", a: "Yes. Unworn items can be returned within 30 days of delivery. Contact us and we will send return instructions." },
+    {
+      q: "What does Bente make?",
+      a: "Knitwear. The current drop is an intarsia knit sweater, with more knits in development. Everything is knitted at our own mill in Dongguan rather than bought in and decorated.",
+    },
+    {
+      q: "How is the colourwork done?",
+      a: "It is knitted into the garment using intarsia, so the pattern is part of the fabric itself. It does not peel, crack or wash off the way a print or coating does.",
+    },
+    {
+      q: "What sizes do you carry?",
+      a: "The current range is XS to 2XL. Every product page lists the measurements - size up if you like a looser fit.",
+    },
+    {
+      q: "How long does shipping take?",
+      a: "Orders ship tracked from our warehouse. Most destinations arrive within 5 to 12 business days.",
+    },
+    {
+      q: "Can I return it?",
+      a: "Yes - unworn items within 30 days of delivery. Reply to your order email and we will send return instructions.",
+    },
   ],
 
   footer: {
-    about: "Bente is a knitwear maker in Dongguan, China, producing heat-reactive and custom knitwear in our own mill. This is our own brand - made in the same factory we knit for other labels.",
-    note: "© " + new Date().getFullYear() + " " + "Bente" + ". All rights reserved.",
+    about:
+      "Bente is a knitwear label made at our own mill in Dongguan, China. We knit sweaters with the colourwork built into the fabric, in short runs, shipped worldwide.",
+    note: "© " + new Date().getFullYear() + " Bente. All rights reserved.",
   },
 };

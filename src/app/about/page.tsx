@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/CtaBand";
 
 export const metadata: Metadata = pageMetadata({
   title: `About ${site.brand.name}`,
-  description: `Learn about ${site.brand.name} — a direct manufacturer and exporter of ${site.industry.name.toLowerCase()} for ${site.market.primary} buyers.`,
+  description: `${site.brand.name} is a knitwear label made at our own mill in Dongguan, China.`,
   path: "/about/",
   keywords: site.industry.keywords,
 });
