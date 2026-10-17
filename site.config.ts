@@ -15,6 +15,7 @@ export type SiteConfig = {
   industry: { name: string; productsWord: string; keywords: string[] };
   market: { primary: string; language: string };
   contact: { email: string; phone?: string; whatsapp?: string; address?: string };
+  wholesale: { label: string; href: string };
   form: { provider: "web3forms" | "formspree" | "none"; accessKey?: string };
   seo: {
     title: string;
@@ -65,10 +66,15 @@ export const site: SiteConfig = {
   },
 
   contact: {
-    email: "hello@benteknit.com",
+    email: "info@bentepromo.com",
     phone: "",
     whatsapp: "8618166084589",
     address: "Dongguan, Guangdong, China",
+  },
+
+  wholesale: {
+    label: "Wholesale & bulk orders",
+    href: "https://bentepromo.com/apparel/knitwear/",
   },
 
   form: {

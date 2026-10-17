@@ -27,6 +27,14 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href={site.wholesale.href}
+              target="_blank"
+              rel="noopener"
+              className="hidden text-slate-500 underline underline-offset-4 hover:text-brand-700 sm:inline"
+            >
+              Wholesale
+            </a>
             <CartLink />
           </nav>
         </div>

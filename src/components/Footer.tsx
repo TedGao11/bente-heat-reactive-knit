@@ -19,6 +19,11 @@ export function Footer() {
               <li><Link href={href("/products")} className="hover:text-brand-700">{site.industry.productsWord}</Link></li>
               <li><Link href={href("/about")} className="hover:text-brand-700">About</Link></li>
               <li><Link href={href("/contact")} className="hover:text-brand-700">Contact</Link></li>
+              <li>
+                <a href={site.wholesale.href} target="_blank" rel="noopener" className="hover:text-brand-700">
+                  {site.wholesale.label}
+                </a>
+              </li>
             </ul>
           </div>
 
